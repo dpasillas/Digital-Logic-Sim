@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Digital Logic Sim</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/images/DLS_ICO2.png</normaloff>:/images/DLS_ICO2.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="margin">
+     <number>0</number>
+    </property>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="separator"/>
+    <addaction name="actionPrint"/>
+    <addaction name="actionPrint_Preview"/>
+    <addaction name="actionSeparator"/>
+    <addaction name="actionRecentFiles1"/>
+    <addaction name="actionRecentFiles2"/>
+    <addaction name="actionRecentFiles3"/>
+    <addaction name="actionRecentFiles4"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionDelete"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionPaste"/>
+    <addaction name="actionSelect_All"/>
+    <addaction name="separator"/>
+    <addaction name="actionImport"/>
+    <addaction name="actionExport"/>
+    <addaction name="separator"/>
+    <addaction name="actionComment"/>
+    <addaction name="separator"/>
+    <addaction name="actionSelect"/>
+    <addaction name="actionMove"/>
+    <addaction name="actionLabel"/>
+    <addaction name="actionDelay"/>
+    <addaction name="separator"/>
+    <addaction name="actionSettings"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <widget class="QMenu" name="menuZoom">
+     <property name="title">
+      <string>Zoom</string>
+     </property>
+     <addaction name="actionFit_To_Window"/>
+     <addaction name="actionScale_25"/>
+     <addaction name="actionScale_50"/>
+     <addaction name="actionScale_75"/>
+     <addaction name="actionScale_100"/>
+     <addaction name="actionScale_150"/>
+     <addaction name="actionScale_200"/>
+     <addaction name="actionScale_300"/>
+     <addaction name="actionScale_400"/>
+     <addaction name="actionScale_Custom"/>
+    </widget>
+    <addaction name="actionToolbar"/>
+    <addaction name="actionStatusbar"/>
+    <addaction name="separator"/>
+    <addaction name="actionShow_I_O_Values"/>
+    <addaction name="actionShow_Connections"/>
+    <addaction name="actionShow_Pin_Names"/>
+    <addaction name="separator"/>
+    <addaction name="menuZoom"/>
+   </widget>
+   <widget class="QMenu" name="menuParts">
+    <property name="title">
+     <string>&amp;Parts</string>
+    </property>
+    <widget class="QMenu" name="menuSource_2">
+     <property name="title">
+      <string>Input</string>
+     </property>
+     <addaction name="actionGround"/>
+     <addaction name="actionV"/>
+     <addaction name="actionSwitch"/>
+     <addaction name="actionPush_Button"/>
+     <addaction name="actionClock"/>
+    </widget>
+    <widget class="QMenu" name="menuOutput">
+     <property name="title">
+      <string>Output</string>
+     </property>
+     <addaction name="actionBulb"/>
+     <addaction name="action7_Segment_LED"/>
+     <addaction name="action14_Segment_LED"/>
+     <addaction name="action16_Segment_LED"/>
+    </widget>
+    <widget class="QMenu" name="menuBus">
+     <property name="title">
+      <string>Bus</string>
+     </property>
+     <addaction name="actionMerger"/>
+     <addaction name="actionSplitter"/>
+    </widget>
+    <widget class="QMenu" name="menuOther">
+     <property name="title">
+      <string>Other</string>
+     </property>
+     <widget class="QMenu" name="menuShift_Register">
+      <property name="title">
+       <string>Shift Register</string>
+      </property>
+      <addaction name="actionLeft_Shift"/>
+      <addaction name="actionRight_Shift"/>
+      <addaction name="actionBidirectional_Shift"/>
+     </widget>
+     <addaction name="actionAdder"/>
+     <addaction name="separator"/>
+     <addaction name="actionMultiplexer"/>
+     <addaction name="actionDecoder"/>
+     <addaction name="actionPriority_Encoder"/>
+     <addaction name="separator"/>
+     <addaction name="actionRegister"/>
+     <addaction name="menuShift_Register"/>
+     <addaction name="separator"/>
+     <addaction name="actionCounter"/>
+     <addaction name="actionLoadable_Counter"/>
+    </widget>
+    <widget class="QMenu" name="menuAND">
+     <property name="title">
+      <string>AND</string>
+     </property>
+     <addaction name="action2_input_AND"/>
+     <addaction name="action3_input_AND"/>
+     <addaction name="action4_input_AND"/>
+    </widget>
+    <widget class="QMenu" name="menuOR">
+     <property name="title">
+      <string>OR</string>
+     </property>
+     <addaction name="action2_input_OR"/>
+     <addaction name="action3_input_OR"/>
+     <addaction name="action4_input_OR"/>
+    </widget>
+    <widget class="QMenu" name="menuNAND">
+     <property name="title">
+      <string>NAND</string>
+     </property>
+     <addaction name="action2_input_NAND"/>
+     <addaction name="action3_input_NAND"/>
+     <addaction name="action4_input_NAND"/>
+    </widget>
+    <widget class="QMenu" name="menuNOR">
+     <property name="title">
+      <string>NOR</string>
+     </property>
+     <addaction name="action2_input_NOR"/>
+     <addaction name="action3_input_NOR"/>
+     <addaction name="action4_input_NOR"/>
+    </widget>
+    <widget class="QMenu" name="menuFlip_Flops">
+     <property name="title">
+      <string>Flip Flops</string>
+     </property>
+     <addaction name="actionD_Flip_Flop"/>
+     <addaction name="actionT_Flip_Flop"/>
+     <addaction name="actionJ_K_Flip_Flop"/>
+    </widget>
+    <addaction name="menuAND"/>
+    <addaction name="menuOR"/>
+    <addaction name="actionXOR"/>
+    <addaction name="actionBuffer"/>
+    <addaction name="menuNAND"/>
+    <addaction name="menuNOR"/>
+    <addaction name="actionXNOR"/>
+    <addaction name="actionNOT"/>
+    <addaction name="separator"/>
+    <addaction name="menuFlip_Flops"/>
+    <addaction name="separator"/>
+    <addaction name="menuSource_2"/>
+    <addaction name="menuOutput"/>
+    <addaction name="menuBus"/>
+    <addaction name="separator"/>
+    <addaction name="menuOther"/>
+   </widget>
+   <widget class="QMenu" name="menuSimulate">
+    <property name="title">
+     <string>Simulate</string>
+    </property>
+    <widget class="QMenu" name="menuOptions">
+     <property name="title">
+      <string>Options</string>
+     </property>
+     <addaction name="actionStep_Interval"/>
+     <addaction name="actionStep_Size_Run"/>
+    </widget>
+    <addaction name="actionRun"/>
+    <addaction name="actionStep"/>
+    <addaction name="actionReset"/>
+    <addaction name="separator"/>
+    <addaction name="menuOptions"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuParts"/>
+   <addaction name="menuSimulate"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open...</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As...</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="text">
+    <string>Print...</string>
+   </property>
+  </action>
+  <action name="actionPrint_Preview">
+   <property name="text">
+    <string>Print Preview</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+  </action>
+  <action name="actionSelect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Select</string>
+   </property>
+  </action>
+  <action name="actionSelect_All">
+   <property name="text">
+    <string>Select All</string>
+   </property>
+  </action>
+  <action name="actionMove">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Move</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Delete</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings...</string>
+   </property>
+  </action>
+  <action name="actionComment">
+   <property name="text">
+    <string>Comment</string>
+   </property>
+  </action>
+  <action name="actionXOR">
+   <property name="text">
+    <string>XOR</string>
+   </property>
+  </action>
+  <action name="actionXNOR">
+   <property name="text">
+    <string>XNOR</string>
+   </property>
+  </action>
+  <action name="actionNOT">
+   <property name="text">
+    <string>NOT</string>
+   </property>
+  </action>
+  <action name="actionButton">
+   <property name="text">
+    <string>Button</string>
+   </property>
+  </action>
+  <action name="action1">
+   <property name="text">
+    <string>1</string>
+   </property>
+  </action>
+  <action name="action0">
+   <property name="text">
+    <string>0</string>
+   </property>
+  </action>
+  <action name="actionGround">
+   <property name="text">
+    <string>Ground</string>
+   </property>
+  </action>
+  <action name="actionV">
+   <property name="text">
+    <string>V+</string>
+   </property>
+  </action>
+  <action name="actionSwitch">
+   <property name="text">
+    <string>Switch</string>
+   </property>
+  </action>
+  <action name="actionPush_Button">
+   <property name="text">
+    <string>Push Button</string>
+   </property>
+  </action>
+  <action name="actionClock">
+   <property name="text">
+    <string>Clock</string>
+   </property>
+  </action>
+  <action name="actionCustom_Signal">
+   <property name="text">
+    <string>Custom Signal</string>
+   </property>
+  </action>
+  <action name="actionProbe_2">
+   <property name="text">
+    <string>Probe</string>
+   </property>
+  </action>
+  <action name="actionBulb">
+   <property name="text">
+    <string>Bulb</string>
+   </property>
+  </action>
+  <action name="action7_Segment_LED">
+   <property name="text">
+    <string>7-Segment LED</string>
+   </property>
+  </action>
+  <action name="actionMerger">
+   <property name="text">
+    <string>Merger</string>
+   </property>
+  </action>
+  <action name="actionSplitter">
+   <property name="text">
+    <string>Splitter</string>
+   </property>
+  </action>
+  <action name="actionInput">
+   <property name="text">
+    <string>Input</string>
+   </property>
+  </action>
+  <action name="actionProbe_3">
+   <property name="text">
+    <string>Probe</string>
+   </property>
+  </action>
+  <action name="actionComplementer">
+   <property name="text">
+    <string>Complementer</string>
+   </property>
+  </action>
+  <action name="actionRun">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Run</string>
+   </property>
+  </action>
+  <action name="actionStop">
+   <property name="text">
+    <string>Stop</string>
+   </property>
+  </action>
+  <action name="actionStep">
+   <property name="text">
+    <string>Step</string>
+   </property>
+  </action>
+  <action name="actionReset">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Reset</string>
+   </property>
+  </action>
+  <action name="actionMultiplexer">
+   <property name="text">
+    <string>Multiplexer</string>
+   </property>
+  </action>
+  <action name="actionToolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Toolbar</string>
+   </property>
+  </action>
+  <action name="actionStatusbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Status Bar</string>
+   </property>
+  </action>
+  <action name="actionShow_I_O_Values">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show I/O Values</string>
+   </property>
+  </action>
+  <action name="action25">
+   <property name="text">
+    <string>25%</string>
+   </property>
+  </action>
+  <action name="action50">
+   <property name="text">
+    <string>50%</string>
+   </property>
+  </action>
+  <action name="action75">
+   <property name="text">
+    <string>75%</string>
+   </property>
+  </action>
+  <action name="action100">
+   <property name="text">
+    <string>100%</string>
+   </property>
+  </action>
+  <action name="action200">
+   <property name="text">
+    <string>200%</string>
+   </property>
+  </action>
+  <action name="actionFit_To_Window">
+   <property name="text">
+    <string>Fit to Window</string>
+   </property>
+  </action>
+  <action name="actionLabel">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Label</string>
+   </property>
+  </action>
+  <action name="actionDelay">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Delay</string>
+   </property>
+  </action>
+  <action name="actionRegister">
+   <property name="text">
+    <string>Register</string>
+   </property>
+  </action>
+  <action name="actionCounter">
+   <property name="text">
+    <string>Counter</string>
+   </property>
+  </action>
+  <action name="action2_input_AND">
+   <property name="text">
+    <string>2-input</string>
+   </property>
+  </action>
+  <action name="action3_input_AND">
+   <property name="text">
+    <string>3-input</string>
+   </property>
+  </action>
+  <action name="action4_input_AND">
+   <property name="text">
+    <string>4-input</string>
+   </property>
+  </action>
+  <action name="action2_input_OR">
+   <property name="text">
+    <string>2-input</string>
+   </property>
+  </action>
+  <action name="action3_input_OR">
+   <property name="text">
+    <string>3-input</string>
+   </property>
+  </action>
+  <action name="action4_input_OR">
+   <property name="text">
+    <string>4-input</string>
+   </property>
+  </action>
+  <action name="action2_input_NAND">
+   <property name="text">
+    <string>2-input</string>
+   </property>
+  </action>
+  <action name="action3_input_NAND">
+   <property name="text">
+    <string>3-input</string>
+   </property>
+  </action>
+  <action name="action4_input_NAND">
+   <property name="text">
+    <string>4-input</string>
+   </property>
+  </action>
+  <action name="action2_input_NOR">
+   <property name="text">
+    <string>2-input</string>
+   </property>
+  </action>
+  <action name="action3_input_NOR">
+   <property name="text">
+    <string>3-input</string>
+   </property>
+  </action>
+  <action name="action4_input_NOR">
+   <property name="text">
+    <string>4-input</string>
+   </property>
+  </action>
+  <action name="actionBuffer">
+   <property name="text">
+    <string>Buffer</string>
+   </property>
+  </action>
+  <action name="actionShow_Pin_Names">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Pin Names</string>
+   </property>
+  </action>
+  <action name="actionScale_100">
+   <property name="text">
+    <string>100%</string>
+   </property>
+  </action>
+  <action name="actionScale_150">
+   <property name="text">
+    <string>150%</string>
+   </property>
+  </action>
+  <action name="actionScale_200">
+   <property name="text">
+    <string>200%</string>
+   </property>
+  </action>
+  <action name="actionScale_300">
+   <property name="text">
+    <string>300%</string>
+   </property>
+  </action>
+  <action name="actionScale_400">
+   <property name="text">
+    <string>400%</string>
+   </property>
+  </action>
+  <action name="actionScale_75">
+   <property name="text">
+    <string>75%</string>
+   </property>
+  </action>
+  <action name="actionScale_50">
+   <property name="text">
+    <string>50%</string>
+   </property>
+  </action>
+  <action name="actionScale_25">
+   <property name="text">
+    <string>25%</string>
+   </property>
+  </action>
+  <action name="actionScale_Custom">
+   <property name="text">
+    <string>Custom...</string>
+   </property>
+  </action>
+  <action name="actionShow_Connections">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Connections</string>
+   </property>
+  </action>
+  <action name="action14_Segment_LED">
+   <property name="text">
+    <string>14-Segment LED</string>
+   </property>
+  </action>
+  <action name="action16_Segment_LED">
+   <property name="text">
+    <string>16-Segment LED</string>
+   </property>
+  </action>
+  <action name="actionDecoder">
+   <property name="text">
+    <string>Decoder</string>
+   </property>
+  </action>
+  <action name="actionD_Flip_Flop">
+   <property name="text">
+    <string>D Flip Flop</string>
+   </property>
+  </action>
+  <action name="actionT_Flip_Flop">
+   <property name="text">
+    <string>T Flip Flop</string>
+   </property>
+  </action>
+  <action name="actionJ_K_Flip_Flop">
+   <property name="text">
+    <string>J-K Flip Flop</string>
+   </property>
+  </action>
+  <action name="actionSeparator">
+   <property name="text">
+    <string>Separator</string>
+   </property>
+  </action>
+  <action name="actionRecentFiles1">
+   <property name="text">
+    <string>RecentFiles1</string>
+   </property>
+  </action>
+  <action name="actionRecentFiles2">
+   <property name="text">
+    <string>RecentFiles2</string>
+   </property>
+  </action>
+  <action name="actionRecentFiles3">
+   <property name="text">
+    <string>RecentFiles3</string>
+   </property>
+  </action>
+  <action name="actionRecentFiles4">
+   <property name="text">
+    <string>RecentFiles4</string>
+   </property>
+  </action>
+  <action name="actionStep_Interval">
+   <property name="text">
+    <string>Step Interval...</string>
+   </property>
+   <property name="toolTip">
+    <string>Run performs a step every [interval] milliseconds.</string>
+   </property>
+  </action>
+  <action name="actionStep_Size_Run">
+   <property name="text">
+    <string>Step Size (Run)...</string>
+   </property>
+   <property name="toolTip">
+    <string>Simulated time skip between steps (ns)</string>
+   </property>
+  </action>
+  <action name="actionLoadable_Counter">
+   <property name="text">
+    <string>Loadable Counter</string>
+   </property>
+  </action>
+  <action name="actionLeft_Shift">
+   <property name="text">
+    <string>Left Shift</string>
+   </property>
+  </action>
+  <action name="actionRight_Shift">
+   <property name="text">
+    <string>Right Shift</string>
+   </property>
+  </action>
+  <action name="actionBidirectional_Shift">
+   <property name="text">
+    <string>Bidirectional Shift</string>
+   </property>
+  </action>
+  <action name="actionPriority_Encoder">
+   <property name="text">
+    <string>Priority Encoder</string>
+   </property>
+  </action>
+  <action name="actionAdder">
+   <property name="text">
+    <string>Adder</string>
+   </property>
+  </action>
+  <action name="actionImport">
+   <property name="text">
+    <string>Import...</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="text">
+    <string>Export Selection...</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

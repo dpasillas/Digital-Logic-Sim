@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>cursor_arrow_white.png</file>
+        <file>cursor_hand.png</file>
+        <file>tex_1.png</file>
+        <file>DLS_ICO.png</file>
+        <file>DLS_ICO2.png</file>
+    </qresource>
+</RCC>

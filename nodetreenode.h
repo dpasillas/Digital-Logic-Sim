@@ -1,0 +1,4 @@
+#ifndef NODETREENODE_H
+#define NODETREENODE_H
+
+#endif // NODETREENODE_H
